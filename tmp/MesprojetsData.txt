@@ -1,0 +1,35 @@
+Ce document présente une sélection de tableaux de bord réalisés dans le cadre de mes
+missions ou projets personnels. Les visuels illustrent différentes approches de reporting et
+d’analyse métier (Pilotage des activités, enquêtes internes, suivi de KPI, automatisation
+d’indicateurs...) avec Power Bi, et QlikSense
+
+➔ Toutes les données ont été modifiées, anonymisées ou générées à des fins de
+démonstration. Aucun contenu confidentiel n’est exposé.
+
+App QlikSense: Pilotage des sinistres « événements naturelles»
+
+App QlikSense: Pilotage des Provisions et Recours sinistres
+
+Projets Power Bi
+
+Projet A : Gestion ITSM – Tickets trend – Agents productivity – Incidents – etc.
+
+Projet B: Prestataire nettoyage Landside
+
+Architecture de projet :
+
+Data profiling – Data validation
+
+Pipeline du premier Use Case :
+
+Exportation et visualisation des données :
+
+Granularité : Terminal 2F + Portes F (21 à 27)
+
+PopUp automatisée pour la prédiction des passagers sur une semaine
+
+Projet C : Optimisation des métriques incidents et tickets
+
+Projet D: Synthèse des feedbacks internes – Voix des collaborateurs
+
+

@@ -1,0 +1,39 @@
+# Contexte & role
+Application SIG (Python + VueJS). Role : Developpeur data.
+
+## Objectif metier
+Visualiser des donnees territoriales pour aider les equipes a prioriser les actions.
+
+## Donnees & sources
+- Donnees geographiques
+- API et fichiers CSV
+
+## Architecture
+- Backend Python pour traitements geo
+- Front VueJS pour la carte
+
+## Pipeline / traitement
+1. Nettoyage et harmonisation des coordonnees
+2. API pour servir les couches
+3. Cartographie interactive
+
+## Modelisation / KPI
+- Couverture par zone
+- Priorites par territoire
+
+## Dashboard / resultats
+- Carte dynamique
+- Filtres par region / categorie
+
+## Extraits code
+```python
+import geopandas as gpd
+zones = gpd.read_file(\"zones.geojson\")
+```
+
+## Ce que j'ai appris / ameliorations
+- Optimiser les performances carto
+- Simplifier l'UX des filtres
+
+## Liens
+- Demo : a venir

@@ -1,0 +1,39 @@
+# Contexte & role
+Prototype accessibilite IA pour la LSF. Role : Data / ML prototype.
+
+## Objectif metier
+Faciliter la communication via reconnaissance de gestes en temps reel.
+
+## Donnees & sources
+- Captures video
+- Dataset gestes synthetique
+
+## Architecture
+- Pipeline vision (OpenCV + MediaPipe)
+- Modele TensorFlow pour classification
+
+## Pipeline / traitement
+1. Extraction des keypoints
+2. Entrainement du modele
+3. Inference temps reel
+
+## Modelisation / KPI
+- Precision par geste
+- Latence moyenne
+
+## Dashboard / resultats
+- Rapport de performance
+- Demo live
+
+## Extraits code
+```python
+import mediapipe as mp
+hands = mp.solutions.hands.Hands()
+```
+
+## Ce que j'ai appris / ameliorations
+- Robuste face aux variations de lumiere
+- Optimiser la vitesse d'inference
+
+## Liens
+- Demo : a venir

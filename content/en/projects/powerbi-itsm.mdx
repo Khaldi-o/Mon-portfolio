@@ -1,0 +1,40 @@
+# Context & role
+ITSM project to consolidate support KPIs and track incidents. Role: Data Analyst / BI.
+
+## Business objective
+Monitor service desk performance, agent productivity and incident trends to optimize SLAs.
+
+## Data & sources
+- ITSM system (tickets, incidents, resolutions)
+- Agents and teams reference data
+
+## Architecture
+- Star schema for analytics
+- Incident/ticket fact tables
+
+## Pipeline / processing
+1. Extraction and consolidation
+2. Cleaning and standardization
+3. DAX measures construction
+
+## Modeling / KPI
+- Ticket volume
+- Average resolution time
+- SLA compliance rate
+
+## Dashboard / results
+- Weekly/monthly trends
+- Team heatmap
+- Agent productivity tracking
+
+## Code snippets
+```DAX
+SLA_Rate = DIVIDE([Tickets_SLA_OK], [Tickets_Total])
+```
+
+## Learnings / improvements
+- Align KPI definitions with business stakeholders
+- Strengthened data governance
+
+## Links
+- Demo: coming soon

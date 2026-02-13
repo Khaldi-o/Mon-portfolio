@@ -1,0 +1,42 @@
+# Contexte & role
+Generateur de posts reseaux sociaux. Role : Full-stack prototype.
+
+## Objectif metier
+Accelerer la creation de contenus a partir d'un brief simple.
+
+## Donnees & sources
+- Brief utilisateur
+- Prompts et templates
+
+## Architecture
+- Front React pour l'UX
+- API FastAPI pour l'orchestration
+- Integration OpenAI
+
+## Pipeline / traitement
+1. Analyse du brief
+2. Generation multi-variantes
+3. Selection et edition
+
+## Modelisation / KPI
+- Temps de generation
+- Taux de validation utilisateur
+
+## Dashboard / resultats
+- Previsualisation des variantes
+- Export simple
+
+## Extraits code
+```python
+response = client.responses.create(
+  model=\"gpt-4.1-mini\",
+  input=prompt
+)
+```
+
+## Ce que j'ai appris / ameliorations
+- Clarifier le format de brief
+- Garde-fous sur la tonalite
+
+## Liens
+- Demo : a venir

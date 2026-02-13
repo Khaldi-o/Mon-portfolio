@@ -1,0 +1,46 @@
+# Contexte & rôle
+Mission chez un prestataire de nettoyage Landside. Rôle : Data Analyst / Data Engineer junior, construction d’un pipeline de bout en bout et mise en place du reporting.
+
+## Objectif métier
+Fournir une vue quotidienne et hebdomadaire des opérations de nettoyage (par zone et type d’activité) afin d’anticiper les charges et piloter les coûts.
+
+## Données & sources
+- Fichiers opérationnels (planning, volumes, zones)
+- Référentiels zones/activités
+- Données historisées dans un espace Dataiku
+
+## Architecture
+- **Bronze** : ingestion brute + normalisation minimale
+- **Silver** : jointures, contrôles qualité, enrichissements
+- **Gold** : tables métier prêtes pour la BI
+
+## Pipeline / traitement
+1. Profiling + validation (Dataiku)
+2. Nettoyage et normalisation SQL/Python
+3. Calcul des KPI par zone et période
+4. Publication des tables Gold vers Power BI
+
+## Modélisation / KPI
+- Volumes par zone / poste
+- Coût moyen par opération
+- Tendance hebdomadaire
+
+## Dashboard / résultats
+- Comparatifs par terminal et période
+- Détection des zones en surcharge
+- Pilotage des objectifs de qualité
+
+## Extraits code
+```sql
+SELECT zone, date, SUM(volume) AS volume_total
+FROM fact_operations
+GROUP BY zone, date;
+```
+
+## Ce que j’ai appris / améliorations
+- Automatiser les contrôles qualité
+- Standardiser les règles de calcul KPI
+- Réduire les délais de mise à jour
+
+## Liens
+- Demo : à venir

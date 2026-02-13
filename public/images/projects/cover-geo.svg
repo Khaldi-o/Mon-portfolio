@@ -1,0 +1,15 @@
+﻿<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="32" fill="#05070D"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4FD1C5" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect x="70" y="70" width="1060" height="660" rx="28" fill="url(#g)"/>
+  <rect x="140" y="140" width="920" height="520" rx="28" fill="#0B0F1A"/>
+  <circle cx="360" cy="320" r="90" fill="#101826"/>
+  <circle cx="760" cy="420" r="120" fill="#101826"/>
+  <path d="M240 540 L520 260 L860 520" stroke="#9FB0C6" stroke-width="6" fill="none"/>
+  <text x="200" y="230" fill="#E6EDF3" font-family="Space Grotesk, Arial" font-size="34">Geo app</text>
+</svg>

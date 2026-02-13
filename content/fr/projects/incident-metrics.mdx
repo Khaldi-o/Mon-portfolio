@@ -1,0 +1,40 @@
+# Contexte & role
+Optimisation des metriques incidents et tickets. Role : Data Analyst / BI.
+
+## Objectif metier
+Rendre les indicateurs plus lisibles et actionnables pour accelerer les decisions.
+
+## Donnees & sources
+- Table incidents et tickets
+- Donnees equipes et categories
+
+## Architecture
+- Modele en etoile
+- Dimensions standardisees
+
+## Pipeline / traitement
+1. Nettoyage des historiques
+2. Construction des mesures DAX
+3. Validation avec les equipes
+
+## Modelisation / KPI
+- Volumes par categorie
+- Temps moyen de resolution
+- Taux de reouverture
+
+## Dashboard / resultats
+- Comparatifs par equipe
+- Trends hebdomadaires
+- Focus sur les points de blocage
+
+## Extraits code
+```DAX
+ReopenRate = DIVIDE([Tickets_Reopen], [Tickets_Total])
+```
+
+## Ce que j'ai appris / ameliorations
+- Simplifier les vues sans perdre le detail
+- Mieux documenter les KPI
+
+## Liens
+- Demo : a venir

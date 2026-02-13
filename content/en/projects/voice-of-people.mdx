@@ -1,0 +1,42 @@
+# Context & role
+Internal feedback synthesis. Role: Data Analyst / BI.
+
+## Business objective
+Turn verbatims into clear trends to guide HR actions.
+
+## Data & sources
+- Internal surveys
+- Anonymized feedback
+
+## Architecture
+- Text cleaning pipeline
+- Aggregation tables by theme
+
+## Pipeline / processing
+1. Verbatim normalization
+2. Theme categorization
+3. Aggregation by team and period
+
+## Modeling / KPI
+- Dominant themes
+- Weak-signal evolution
+- Participation rate
+
+## Dashboard / results
+- Theme map
+- Team comparison
+- Trend alerts
+
+## Code snippets
+```sql
+SELECT theme, COUNT(*) AS feedback_count
+FROM feedbacks
+GROUP BY theme;
+```
+
+## Learnings / improvements
+- Structure qualitative data
+- Build useful action views
+
+## Links
+- Demo: coming soon

@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "experience": "Expériences",
+    "skills": "Compétences",
+    "certifications": "Certifications",
+    "about": "À propos",
+    "contact": "Contact",
+    "switchLabel": "Basculer vers {locale}"
+  },
+  "recruiter": {
+    "enabled": "Mode recruteur : ON",
+    "disabled": "Mode recruteur"
+  },
+  "footer": {
+    "tagline": "Data Analyst / BI + Data Engineer junior",
+    "location": "Paris • Île-de-France",
+    "availability": "Ouvert aux opportunités"
+  }
+}
