@@ -3,35 +3,72 @@ import animate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: ["./src/**/*.{ts,tsx,mdx}", "./content/**/*.{ts,tsx,mdx}"],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
-        muted: "var(--muted)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        popover: {
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
+        // Custom additions
         surface: "var(--surface)",
-        "surface-strong": "var(--surface-strong)",
-        "surface-glow": "var(--surface-glow)",
-        border: "var(--border)",
-        accent: "var(--accent)",
-        "accent-2": "var(--accent-2)",
-        "accent-3": "var(--accent-3)",
+        "surface-hover": "var(--surface-hover)",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
         display: ["var(--font-display)", "ui-sans-serif", "system-ui"],
-      },
-      boxShadow: {
-        glow: "0 0 40px rgba(94, 234, 212, 0.18)",
-        "glow-strong": "0 0 60px rgba(139, 92, 246, 0.24)",
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       backgroundImage: {
-        "radial-glow":
-          "radial-gradient(1200px 800px at 10% -10%, rgba(79,209,197,0.16), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(167,139,250,0.18), transparent 65%)",
-        "soft-grid":
-          "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+        "tech-grid": "linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+        "glow-conic": "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",
+      },
+      boxShadow: {
+        glow: "0 0 20px rgba(0, 240, 255, 0.3)",
+        "glow-strong": "0 0 40px rgba(112, 0, 255, 0.3)",
       },
     },
   },
