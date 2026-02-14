@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MoveRight, Terminal } from "lucide-react";
-import TechBackground from "@/components/tech-background";
+import HeroBackground3D from "@/components/hero-background-3d";
 
 type HeroProps = {
   eyebrow: string;
@@ -23,19 +23,14 @@ export default function HomeHero({
   secondaryHref
 }: HeroProps) {
   return (
-    <section className="relative overflow-visible rounded-[40px] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-cyan-500/10 md:p-12 lg:p-16 group">
-      {/* Background Tech Effects - Increased opacity and ensuring z-index stability */}
-      <div className="absolute inset-0 z-0 overflow-hidden rounded-[40px]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(160, 131, 197, 0.2),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(0,240,255,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[url('/images/generic/grid-pattern.svg')] opacity-30 mask-image-gradient-to-b mix-blend-overlay" />
+    <section className="relative overflow-visible rounded-[40px] border border-white/10 p-8 shadow-2xl shadow-cyan-500/10 md:p-12 lg:p-16 group">
+      {/* 3D Premium Background */}
+      <HeroBackground3D />
 
-        {/* Animated Canvas Interaction */}
-        <div className="absolute inset-0 z-0 opacity-100">
-          <TechBackground />
-        </div>
-      </div>
+      {/* Subtle overlay to ensure text contrast */}
+      <div className="absolute inset-0 z-0 bg-white/5 rounded-[40px] pointer-events-none" />
 
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
         {/* Text Content */}
         <div className="relative z-10 flex flex-col items-start gap-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-cyan-300 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(6,182,212,0.3)]">
