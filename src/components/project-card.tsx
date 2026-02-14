@@ -32,15 +32,22 @@ export default function ProjectCard({
       <Link href={href} className="absolute inset-0 z-10">
         <span className="sr-only">{project.title}</span>
       </Link>
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative h-48 overflow-hidden">
         <Image
           src={project.coverImage}
           alt={project.title}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover opacity-80 transition duration-500 group-hover:scale-105"
+          className="object-cover opacity-90 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-60" />
+
+        {/* Hover Reveal Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/20 backdrop-blur-[2px]">
+          <div className="rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
+            View Case Study
+          </div>
+        </div>
       </div>
       <CardContent className="space-y-4">
         <div>

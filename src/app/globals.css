@@ -2,28 +2,33 @@
 
 :root {
   color-scheme: dark;
-  --background: #030508; /* Deep void black */
-  --foreground: #eef2f6; /* Crisp white-blue */
-  
+  --background: #030508;
+  /* Deep void black */
+  --foreground: #eef2f6;
+  /* Crisp white-blue */
+
   /* Tech Palette */
-  --primary: #00f0ff;    /* Cyan Neon */
+  --primary: #00f0ff;
+  /* Cyan Neon */
   --primary-foreground: #000;
-  
-  --secondary: #7000ff;  /* Electric Purple */
+
+  --secondary: #7000ff;
+  /* Electric Purple */
   --secondary-foreground: #fff;
-  
-  --accent: #2dd4bf;     /* Teal */
+
+  --accent: #2dd4bf;
+  /* Teal */
   --accent-foreground: #000;
-  
+
   --muted: #64748b;
   --muted-foreground: #94a3b8;
-  
+
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
   --ring: rgba(0, 240, 255, 0.5);
-  
+
   --radius: 0.5rem;
-  
+
   /* Custom Surface Colors */
   --surface: rgba(10, 15, 30, 0.6);
   --surface-hover: rgba(20, 30, 50, 0.8);
@@ -46,7 +51,7 @@
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: calc(var(--radius));
   --radius-lg: calc(var(--radius) + 2px);
-  
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
@@ -61,7 +66,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
-  background-image: 
+  background-image:
     radial-gradient(circle at 50% 0%, rgba(112, 0, 255, 0.15), transparent 40%),
     radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.1), transparent 30%);
 }
@@ -73,7 +78,7 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -89,13 +94,30 @@ body::before {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--muted);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
