@@ -1,20 +1,31 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getProjectBySlug, getProjectContent, getProjects } from "@/lib/content";
 import { Locale, locales } from "@/i18n/config";
 import { renderMdx } from "@/lib/mdx";
 import { extractToc } from "@/lib/toc";
 import CaseStudyLayout from "@/components/case-study-layout";
 import { Badge } from "@/components/ui/badge";
+import ProjectDetailFactai from "@/components/project-detail-factai";
+import ProjectDetailImaginify from "@/components/project-detail-imaginify";
+import ProjectDetailSqte from "@/components/project-detail-sqte";
+
+const CUSTOM_SLUGS: Record<string, React.ComponentType<{ locale: string }>> = {
+  factai: ProjectDetailFactai,
+  "social-generator": ProjectDetailImaginify,
+  "sqte-website": ProjectDetailSqte,
+};
 
 export async function generateStaticParams() {
   const entries = await Promise.all(
     locales.map(async (locale) => {
       const projects = await getProjects(locale);
-      return projects.map((project) => ({
-        locale,
-        slug: project.slug
-      }));
+      return projects
+        .filter((project) => !project.externalUrl)
+        .map((project) => ({
+          locale,
+          slug: project.slug
+        }));
     })
   );
 
@@ -33,24 +44,31 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
-  const source = await getProjectContent(locale, slug);
+  // If the project has an external URL, redirect there
+  if (project.externalUrl) {
+    redirect(project.externalUrl);
+  }
+
+  const CustomComponent = CUSTOM_SLUGS[slug];
+
+  const source = CustomComponent ? null : await getProjectContent(locale, slug);
   const toc = source ? extractToc(source) : [];
   const mdx = source ? await renderMdx(source) : null;
 
   const labels =
     locale === "fr"
       ? {
-          sanitized: "Anonymise",
-          public: "Public",
-          toc: "Sommaire",
-          comingSoon: "Case study detaille disponible bientot."
-        }
+        sanitized: "Anonymisé",
+        public: "Public",
+        toc: "Sommaire",
+        comingSoon: "Case study détaillé disponible bientôt."
+      }
       : {
-          sanitized: "Sanitized",
-          public: "Public",
-          toc: "Contents",
-          comingSoon: "Detailed case study coming soon."
-        };
+        sanitized: "Sanitized",
+        public: "Public",
+        toc: "Contents",
+        comingSoon: "Detailed case study coming soon."
+      };
 
   return (
     <div className="space-y-10">
@@ -66,18 +84,6 @@ export default async function ProjectDetailPage({
         <p className="max-w-3xl text-base text-foreground/70">
           {project.summary}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {project.stack.map((item) => (
-            <Badge key={item} tone="accent">
-              {item}
-            </Badge>
-          ))}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <Badge key={tag}>{tag}</Badge>
-          ))}
-        </div>
         {project.metrics && project.metrics.length > 0 ? (
           <div className="flex flex-wrap gap-3 text-sm text-foreground/70">
             {project.metrics.map((metric) => (
@@ -92,33 +98,40 @@ export default async function ProjectDetailPage({
         ) : null}
       </header>
 
-      {project.gallery.length > 0 ? (
-        <div className="grid gap-4 md:grid-cols-2">
-          {project.gallery.map((item) => (
-            <div
-              key={item}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-            >
-              <Image
-                src={item}
-                alt={`${project.title} preview`}
-                width={1200}
-                height={800}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      {mdx ? (
-        <CaseStudyLayout toc={toc} tocTitle={labels.toc}>
-          {mdx}
-        </CaseStudyLayout>
+      {/* Custom component for specific projects */}
+      {CustomComponent ? (
+        <CustomComponent locale={locale} />
       ) : (
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-foreground/70">
-          {labels.comingSoon}
-        </div>
+        <>
+          {project.gallery.length > 0 ? (
+            <div className="grid gap-4 md:grid-cols-2">
+              {project.gallery.map((item) => (
+                <div
+                  key={item}
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                >
+                  <Image
+                    src={item}
+                    alt={`${project.title} preview`}
+                    width={1200}
+                    height={800}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          {mdx ? (
+            <CaseStudyLayout toc={toc} tocTitle={labels.toc}>
+              {mdx}
+            </CaseStudyLayout>
+          ) : (
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-foreground/70">
+              {labels.comingSoon}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

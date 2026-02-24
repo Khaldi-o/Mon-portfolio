@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import TechIcon from "@/components/tech-icon";
 import { cn } from "@/lib/utils";
+import { ExternalLink } from "lucide-react";
 
 type ProjectCardProps = {
   project: ProjectMeta;
@@ -21,6 +22,8 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const stackPreview = project.stack.slice(0, 4);
   const extraCount = project.stack.length - stackPreview.length;
+  const isExternal = !!project.externalUrl;
+  const finalHref = project.externalUrl || href;
 
   return (
     <Card
@@ -29,7 +32,11 @@ export default function ProjectCard({
         highlight && "border-white/20"
       )}
     >
-      <Link href={href} className="absolute inset-0 z-10">
+      <Link
+        href={finalHref}
+        className="absolute inset-0 z-10"
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
         <span className="sr-only">{project.title}</span>
       </Link>
       <div className="relative h-48 overflow-hidden">
@@ -44,14 +51,23 @@ export default function ProjectCard({
 
         {/* Hover Reveal Overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/20 backdrop-blur-[2px]">
-          <div className="rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
-            View Case Study
+          <div className="rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md flex items-center gap-2">
+            {isExternal ? (
+              <>
+                Voir sur LinkedIn <ExternalLink className="h-3 w-3" />
+              </>
+            ) : (
+              "View Case Study"
+            )}
           </div>
         </div>
       </div>
       <CardContent className="space-y-4">
         <div>
-          <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+            {project.title}
+            {isExternal && <ExternalLink className="h-3.5 w-3.5 text-foreground/50" />}
+          </h3>
           <p className="text-sm text-foreground/70">{project.summary}</p>
         </div>
         <div className="flex items-center gap-2">
@@ -76,7 +92,7 @@ export default function ProjectCard({
           ))}
         </div>
         <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-          {ctaLabel}
+          {isExternal ? "Voir sur LinkedIn ↗" : ctaLabel}
         </p>
       </CardContent>
     </Card>

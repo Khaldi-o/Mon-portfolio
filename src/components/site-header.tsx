@@ -7,7 +7,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import LocaleSwitch from "@/components/locale-switch";
-import RecruiterModeToggle from "@/components/recruiter-mode-toggle";
 
 const navItems = [
   { key: "home", href: "" },
@@ -46,7 +45,7 @@ export default function SiteHeader() {
                 className={cn(
                   "relative transition hover:text-white",
                   active &&
-                    "text-white after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-[color:var(--accent)] after:via-[color:var(--accent-2)] after:to-[color:var(--accent-3)]"
+                  "text-white after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-[color:var(--accent)] after:via-[color:var(--accent-2)] after:to-[color:var(--accent-3)]"
                 )}
               >
                 {t(item.key)}
@@ -63,7 +62,6 @@ export default function SiteHeader() {
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
-          <RecruiterModeToggle />
           <LocaleSwitch />
         </div>
       </div>

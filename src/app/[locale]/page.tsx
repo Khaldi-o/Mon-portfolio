@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getContact, getHomeData, getProjects } from "@/lib/content";
+import { getContact, getExperiences, getHomeData, getProjects } from "@/lib/content";
 import { Locale } from "@/i18n/config";
 import SectionHeading from "@/components/section-heading";
 import HomeHero from "@/components/home-hero";
 import DataJourney from "@/components/data-journey";
 import ProjectCard from "@/components/project-card";
 import ImpactGrid from "@/components/impact-grid";
+import ExperienceTimeline from "@/components/experience-timeline";
 import ToolboxStrip from "@/components/toolbox-strip";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/reveal";
@@ -21,13 +22,12 @@ export default async function HomePage({
   const projects = await getProjects(locale);
   const featured = projects.filter((project) => project.featured).slice(0, 4);
   const contact = await getContact(locale);
+  const experiences = await getExperiences(locale);
+
   const labels =
     locale === "fr"
       ? {
         journeyEyebrow: "Data Journey",
-        journeyTitle: "Raw → Pipeline → Model → Dashboard → Decision",
-        journeyDescription:
-          "Chaque étape est conçue pour accélérer la décision et maximiser l’impact.",
         featuredEyebrow: "Featured",
         featuredTitle: "Projets sélectionnés",
         featuredDescription: "Des cas concrets BI, Dataiku, Azure et IA.",
@@ -35,6 +35,15 @@ export default async function HomePage({
         impactTitle: "Problème → Action → Résultat",
         impactDescription:
           "Un format court pour capturer les gains métiers.",
+        experienceEyebrow: "Career Path",
+        experienceTitle: "Expériences professionnelles",
+        experienceDescription: "Un parcours axé sur la valeur data et l'excellence technique.",
+        experienceLabels: {
+          clientPrefix: "Client :",
+          impact: "Impact & Missions",
+          tech: "Stack Technique",
+          highlights: "Projets liés"
+        },
         toolboxEyebrow: "Toolbox",
         toolboxTitle: "Stack & outils",
         toolboxDescription:
@@ -46,15 +55,21 @@ export default async function HomePage({
       }
       : {
         journeyEyebrow: "Data Journey",
-        journeyTitle: "Raw → Pipeline → Model → Dashboard → Decision",
-        journeyDescription:
-          "Each step is designed to accelerate decisions and impact.",
         featuredEyebrow: "Featured",
         featuredTitle: "Selected projects",
         featuredDescription: "BI, Dataiku, Azure and AI case studies.",
         impactEyebrow: "Proof of Impact",
         impactTitle: "Problem → Action → Result",
         impactDescription: "A short format to capture business gains.",
+        experienceEyebrow: "Career Path",
+        experienceTitle: "Work Experience",
+        experienceDescription: "A journey focused on data value and technical excellence.",
+        experienceLabels: {
+          clientPrefix: "Client:",
+          impact: "Impact & Missions",
+          tech: "Tech Stack",
+          highlights: "Related Projects"
+        },
         toolboxEyebrow: "Toolbox",
         toolboxTitle: "Stack & tools",
         toolboxDescription:
@@ -65,9 +80,14 @@ export default async function HomePage({
         ctaCv: "Download CV"
       };
 
+  const projectMap = Object.fromEntries(
+    projects.map((p) => [p.slug, p.title])
+  );
+
   return (
     <main className="container mx-auto max-w-8xl px-4 py-8 md:px-8 md:py-12">
       <div className="space-y-24">
+        {/* 1. Hero */}
         <Reveal>
           <HomeHero
             eyebrow={home.hero.eyebrow}
@@ -80,17 +100,36 @@ export default async function HomePage({
           />
         </Reveal>
 
+        {/* 2. Experience */}
         <Reveal>
-          <section className="space-y-6">
+          <section className="space-y-12">
+            <SectionHeading
+              eyebrow={labels.experienceEyebrow}
+              title={labels.experienceTitle}
+              description={labels.experienceDescription}
+            />
+            <ExperienceTimeline
+              items={experiences}
+              labels={labels.experienceLabels}
+              projectMap={projectMap}
+              basePath={`${base}/projects`}
+            />
+          </section>
+        </Reveal>
+
+        {/* 3. Data Journey */}
+        <Reveal>
+          <section className="space-y-12">
             <SectionHeading
               eyebrow={labels.journeyEyebrow}
-              title={labels.journeyTitle}
-              description={labels.journeyDescription}
+              title=""
+              description=""
             />
             <DataJourney steps={home.dataJourney} />
           </section>
         </Reveal>
 
+        {/* 4. Featured Projects */}
         <Reveal>
           <section className="space-y-6">
             <SectionHeading
@@ -114,17 +153,7 @@ export default async function HomePage({
           </section>
         </Reveal>
 
-        <Reveal>
-          <section className="space-y-6">
-            <SectionHeading
-              eyebrow={labels.impactEyebrow}
-              title={labels.impactTitle}
-              description={labels.impactDescription}
-            />
-            <ImpactGrid items={home.impacts} />
-          </section>
-        </Reveal>
-
+        {/* 5. Toolbox */}
         <Reveal>
           <section className="space-y-6">
             <SectionHeading
@@ -136,6 +165,19 @@ export default async function HomePage({
           </section>
         </Reveal>
 
+        {/* 6. Proof of Impact */}
+        <Reveal>
+          <section className="space-y-6">
+            <SectionHeading
+              eyebrow={labels.impactEyebrow}
+              title={labels.impactTitle}
+              description={labels.impactDescription}
+            />
+            <ImpactGrid items={home.impacts} />
+          </section>
+        </Reveal>
+
+        {/* 7. CTA */}
         <Reveal>
           <section className="flex flex-col items-center justify-between gap-6 rounded-[32px] border border-white/10 bg-white/5 p-8 text-center md:flex-row md:items-center md:text-left">
             <div className="flex flex-col items-center md:items-start">

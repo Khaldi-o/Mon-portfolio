@@ -15,6 +15,7 @@ export type ProjectMeta = {
   };
   confidentiality: "public" | "sanitized";
   metrics?: string[];
+  externalUrl?: string;
 };
 
 export type Experience = {
@@ -27,6 +28,7 @@ export type Experience = {
   techBullets: string[];
   stackTags: string[];
   relatedProjects: string[];
+  companyLogo?: string;
 };
 
 export type SkillCategory = {

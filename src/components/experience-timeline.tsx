@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import type { Experience } from "@/types/content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TechBadge from "@/components/tech-badge";
-import { useRecruiterMode } from "@/components/recruiter-mode-provider";
+import { cn } from "@/lib/utils";
 
 export default function ExperienceTimeline({
   items,
@@ -24,36 +25,32 @@ export default function ExperienceTimeline({
   projectMap: Record<string, string>;
   basePath: string;
 }) {
-  const { enabled } = useRecruiterMode();
-
   return (
-    <div className="relative space-y-8">
-      <span className="absolute left-3 top-0 hidden h-full w-px bg-white/10 md:block" />
-      {items.map((item, index) => (
-        <div key={item.role + index} className="relative md:pl-10">
-          <span className="absolute left-0 top-8 hidden h-3 w-3 rounded-full border border-white/20 bg-[color:var(--surface-strong)] md:block" />
-          <ExperienceCard
-            item={item}
-            recruiter={enabled}
-            labels={labels}
-            projectMap={projectMap}
-            basePath={basePath}
-          />
-        </div>
-      ))}
+    <div className="relative space-y-12">
+      {/* Removed the left timeline border to allow true centering */}
+      <div className="flex flex-col items-center space-y-12">
+        {items.map((item, index) => (
+          <div key={item.role + index} className="w-full relative flex justify-center">
+            <ExperienceCard
+              item={item}
+              labels={labels}
+              projectMap={projectMap}
+              basePath={basePath}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 function ExperienceCard({
   item,
-  recruiter,
   labels,
   projectMap,
   basePath
 }: {
   item: Experience;
-  recruiter: boolean;
   labels: {
     clientPrefix: string;
     impact: string;
@@ -63,64 +60,91 @@ function ExperienceCard({
   projectMap: Record<string, string>;
   basePath: string;
 }) {
-  const [value, setValue] = useState(recruiter ? "impact" : "tech");
+  const [value, setValue] = useState("impact");
 
   return (
-    <Card className="border-white/10">
-      <CardContent className="space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-              {item.dates}
-            </p>
-            <h3 className="text-xl font-semibold text-white">
-              {item.role} · {item.company}
-            </h3>
-            {item.client ? (
-              <p className="text-sm text-foreground/70">
-                {labels.clientPrefix} {item.client}
+    <Card className="w-full max-w-4xl border-white/10 bg-white/5 transition-all hover:border-white/20">
+      <CardContent className="space-y-8 p-6 md:p-10">
+        {/* Centered Header with logo on the left of text */}
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-8">
+            {item.companyLogo && (
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-white/10 p-2 border border-white/10 shadow-inner md:h-20 md:w-20">
+                <Image
+                  src={item.companyLogo}
+                  alt={item.company}
+                  fill
+                  className="object-contain p-2.5"
+                />
+              </div>
+            )}
+            <div className="space-y-2 text-center md:text-left">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400/80">
+                {item.dates}
               </p>
-            ) : null}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {item.stackTags.map((tag) => (
-              <TechBadge key={tag} name={tag} />
-            ))}
+              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+                {item.role}
+              </h3>
+              <p className="text-lg font-medium text-foreground/80 sm:text-xl">
+                {item.company} {item.client ? `· ${labels.clientPrefix} ${item.client}` : ""}
+              </p>
+            </div>
           </div>
         </div>
 
-        <p className="text-sm text-foreground/70">{item.context}</p>
-
-        <Tabs value={value} onValueChange={setValue}>
-          <TabsList>
-            <TabsTrigger value="impact">{labels.impact}</TabsTrigger>
-            <TabsTrigger value="tech">{labels.tech}</TabsTrigger>
+        <Tabs value={value} onValueChange={setValue} className="w-full max-w-2xl mx-auto">
+          <TabsList className="h-11 w-full justify-start rounded-xl border border-white/10 bg-black/20 p-1">
+            <TabsTrigger
+              value="impact"
+              className="flex-1 rounded-lg px-6 py-2 transition-all data-[state=active]:bg-cyan-500/10 data-[state=active]:text-cyan-400 data-[state=active]:shadow-[0_0_15px_-3px_rgba(6,182,212,0.3)] data-[state=active]:ring-1 data-[state=active]:ring-cyan-500/30"
+            >
+              {labels.impact}
+            </TabsTrigger>
+            <TabsTrigger
+              value="tech"
+              className="flex-1 rounded-lg px-6 py-2 transition-all data-[state=active]:bg-cyan-500/10 data-[state=active]:text-cyan-400 data-[state=active]:shadow-[0_0_15px_-3px_rgba(6,182,212,0.3)] data-[state=active]:ring-1 data-[state=active]:ring-cyan-500/30"
+            >
+              {labels.tech}
+            </TabsTrigger>
           </TabsList>
-          <TabsContent value="impact">
-            <ul className="space-y-2 text-sm text-foreground/80">
-              {item.impactBullets.map((bullet) => (
-                <li key={bullet}>• {bullet}</li>
-              ))}
-            </ul>
-          </TabsContent>
-          <TabsContent value="tech">
-            <ul className="space-y-2 text-sm text-foreground/80">
-              {item.techBullets.map((bullet) => (
-                <li key={bullet}>• {bullet}</li>
-              ))}
-            </ul>
-          </TabsContent>
+
+          <div className="mt-8 min-h-[140px]">
+            <TabsContent value="impact" className="focus-visible:outline-none">
+              <ul className="space-y-4">
+                {item.impactBullets.map((bullet, idx) => (
+                  <li key={idx} className="flex items-start gap-4 text-sm leading-relaxed text-foreground/80 md:text-base">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-500/50" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </TabsContent>
+
+            <TabsContent value="tech" className="focus-visible:outline-none">
+              <div className="flex flex-wrap justify-center gap-3">
+                {item.stackTags.map((tag) => (
+                  <TechBadge
+                    key={tag}
+                    name={tag}
+                    className="border-white/10 bg-white/5 px-4 py-2 transition-colors hover:border-cyan-500/30 hover:bg-cyan-500/5"
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </div>
         </Tabs>
 
         {item.relatedProjects.length > 0 ? (
-          <div className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-            {labels.highlights}
-            <div className="mt-2 flex flex-wrap gap-2 text-xs normal-case tracking-normal text-foreground/80">
+          <div className="flex flex-col items-center space-y-4 pt-4 border-t border-white/5">
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/40">
+              {labels.highlights}
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
               {item.relatedProjects.map((slug) => (
                 <Link
                   key={slug}
                   href={`${basePath}/${slug}`}
-                  className="rounded-full border border-white/10 px-3 py-1 transition hover:border-white/30 hover:text-white"
+                  className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs font-medium text-foreground/70 transition-all hover:border-cyan-500/30 hover:bg-cyan-500/10 hover:text-white"
                 >
                   {projectMap[slug] ?? slug}
                 </Link>

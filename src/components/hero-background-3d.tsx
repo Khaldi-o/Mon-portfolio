@@ -59,7 +59,7 @@ function PointsContent() {
         if (!materialRef.current) return;
         uniforms.uTime.value = state.clock.getElapsedTime();
         // Using our global normalized coordinates
-        uniforms.uMouse.value.lerp(new THREE.Vector2(mousePosition.current.x * 2, mousePosition.current.y * 2), 0.15);
+        uniforms.uMouse.value.lerp(new THREE.Vector2(mousePosition.current.x * 1.2, mousePosition.current.y * 1.2), 0.15);
     });
 
     return (
@@ -99,8 +99,8 @@ function PointsContent() {
             // Mouse deformation - STRONGER
             float d = distance(pos.xy, uMouse);
             vDist = d;
-            if (d < 2.5) {
-              float force = (2.5 - d) / 2.5;
+            if (d < 1.5) {
+              float force = (1.5 - d) / 1.5;
               pos += normalize(pos) * force * 1.2;
             }
 

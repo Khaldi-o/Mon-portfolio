@@ -4,60 +4,55 @@ export const experiences: Experience[] = [
   {
     role: "Consultant Data Analyst",
     company: "Extia",
-    client: "Groupama",
-    dates: "Déc 2024 – Présent",
+    companyLogo: "/images/company/extia.png",
+    dates: "Jan 2025 – Déc 2025",
     context:
-      "Mission orientée modernisation data et refonte des reportings assurance.",
+      "Modernisation data et refonte des reportings assurance.",
     impactBullets: [
-      "Migration SAS → Dataiku pour fiabiliser les traitements.",
-      "Décommissionnement de reportings SQL/Qlik obsolètes.",
-      "KPI assurance harmonisés pour la direction métier."
+      "Mise en place de workflows ETL/ELT sous SSIS et Dataiku pour l'intégration et la préparation de données.",
+      "Migration de 2 projets assurance (santé/prévoyance) de SAS vers Dataiku : reprise des flux, transformations et contrôles qualité.",
+      "Construction d'un socle de données Oracle (structuration, normalisation des formats, règles de calcul) et alimentation des couches de restitution.",
+      "Refonte et restitution de tableaux de bord Qlik Sense à partir du socle Oracle pour le pilotage technique et le suivi des KPIs.",
+      "Optimisation de requêtes SQL et amélioration des performances (temps de chargement / reporting), mise en place de contrôles qualité et documentation.",
     ],
-    techBullets: [
-      "ETL Python/SQL dans Dataiku",
-      "Modélisation et dashboards Qlik/Power BI",
-      "Automatisation des contrôles qualité"
-    ],
-    stackTags: ["Dataiku", "SQL", "Python", "QlikSense", "Power BI"],
-    relatedProjects: ["qlik-events", "qlik-provisions"],
+    techBullets: [],
+    stackTags: ["SQL", "Python", "Dataiku", "SSIS", "QlikSense", "Power BI", "Oracle", "Confluence"],
+    relatedProjects: ["bi-dashboards"],
   },
   {
     role: "Data Analyst (Alternance)",
     company: "Fujitsu",
-    client: "Hub One / ADP",
-    dates: "Juin 2022 – Août 2024",
+    companyLogo: "/images/company/fujitsu.png",
+    dates: "Juin 2022 – Sep 2024",
     context:
-      "Pilotage data pour la prévision passagers et le suivi opérationnel.",
+      "Pilotage data et prévision trafic passagers aéroportuaire.",
     impactBullets: [
-      "Pipelines ETL pour prévisions passagers multi-zones.",
-      "Dashboards temps réel pour les équipes terrain.",
-      "Monitoring Dataiku et automatisations Power Automate."
+      "Développement d'une pipeline data pour la prévision du trafic passagers aéroportuaire afin d'optimiser l'allocation des équipes sur site.",
+      "Intégration de sources API/JSON/Parquet, stockage sur Azure, préparation et orchestration sous Dataiku (datasets, flows, automatisations).",
+      "Conception de dashboards Power BI (temps réel) pour le pilotage des flux et le suivi des KPI, contribution à la mise en production et à la maintenance.",
+      "Conception d'apps de streaming et de reporting pour le suivi des tickets ITSM.",
+      "Contribution au déploiement d'une infra Azure et à l'automatisation de workflows via Power Automate.",
+      "Développement d'app GenAI (RAG) pour un use case du secteur médical, intégration d'APIs LLM et fine-tuning.",
     ],
-    techBullets: [
-      "Dataiku + SQL pour pipelines",
-      "Power BI / DAX pour la BI",
-      "Data cleaning & anonymisation"
-    ],
-    stackTags: ["Dataiku", "Power BI", "SQL", "Azure", "Power Automate"],
-    relatedProjects: ["landside-cleaning", "powerbi-itsm"],
+    techBullets: [],
+    stackTags: ["SQL", "Python", "Pandas", "Numpy", "Dataiku", "Power BI", "Power Automate", "React", "Azure", "Docker", "Git"],
+    relatedProjects: ["bi-dashboards"],
   },
   {
-    role: "Développeur Data (Alternance)",
+    role: "Développeur de données (Alternance)",
     company: "Atos",
+    companyLogo: "/images/company/atos.png",
     dates: "Juin 2021 – Mai 2022",
     context:
-      "Support à la décision via reporting Excel et outillage RH.",
+      "Support à la décision et automatisation via reporting et outillage RH.",
     impactBullets: [
-      "KPI opérationnels pour les équipes.",
-      "Automatisation de reportings Excel (VBA/PowerQuery).",
-      "App interne de planning RH."
+      "Conception et développement d'outils Excel avancés (VBA, Power Query) pour l'automatisation et l'analyse de données.",
+      "Analyse et visualisation de KPI financiers (facturations et prévisions) pour le pilotage de l'activité.",
+      "Contribution au support à la décision managériale via des tableaux de bord et reportings Excel/Power BI.",
+      "Participation au développement d'une application RH de planification.",
     ],
-    techBullets: [
-      "Excel avancé (VBA, PowerQuery)",
-      "Modélisation KPI",
-      "Automatisation reporting"
-    ],
-    stackTags: ["Excel", "VBA", "PowerQuery"],
-    relatedProjects: ["voice-of-people"],
-  }
+    techBullets: [],
+    stackTags: ["Excel", "VBA", "SQL Server", "Power BI", "JavaScript", "NodeJs", "Jira"],
+    relatedProjects: [],
+  },
 ];
