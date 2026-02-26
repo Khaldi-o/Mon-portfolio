@@ -34,25 +34,29 @@ export const home = {
       badge: "Dataiku",
       title: "Core Designer Certificate",
       description: "Mastery of Dataiku DSS fundamentals for data preparation and machine learning.",
-      image: "/images/technos/certificat1.png"
+      image: "/images/technos/certificat1.png",
+      hasModal: true
     },
     {
       badge: "Dataiku",
       title: "Advanced Designer Certificate",
       description: "Advanced skills in designing complex data pipelines and analytics solutions.",
-      image: "/images/technos/certificat2.png"
+      image: "/images/technos/certificat2.png",
+      hasModal: true
     },
     {
       badge: "Harvard",
       title: "CS50 Computer Science",
       description: "Fundamentals of Computer Science: algorithms, data structures, C, Python, and SQL.",
-      image: "/images/generic/Dashboard.png"
+      image: "/images/technos/certificat3.png",
+      hasModal: false
     },
     {
       badge: "Azure",
       title: "DP-203 Data Engineering",
       description: "Designing and implementing data engineering solutions on Microsoft Azure.",
-      image: "/images/generic/pipeline.png"
+      image: "/images/technos/certificat4.jpg",
+      hasModal: false
     }
   ],
   toolbox: [

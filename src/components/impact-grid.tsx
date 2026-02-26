@@ -11,6 +11,7 @@ type Impact = {
   description: string;
   badge?: string;
   image?: string;
+  hasModal?: boolean;
 };
 
 export default function ImpactGrid({ items }: { items: Impact[] }) {
@@ -56,8 +57,15 @@ export default function ImpactGrid({ items }: { items: Impact[] }) {
           return (
             <div
               key={index}
-              className="group relative h-full min-w-[300px] flex-shrink-0 snap-center overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 md:min-w-[340px] flex flex-col items-center text-center cursor-pointer"
-              onClick={() => setSelectedImage(imageSrc)}
+              className={cn(
+                "group relative h-full min-w-[300px] flex-shrink-0 snap-center overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 md:min-w-[340px] flex flex-col items-center text-center",
+                item.hasModal && "cursor-pointer"
+              )}
+              onClick={() => {
+                if (item.hasModal) {
+                  setSelectedImage(imageSrc);
+                }
+              }}
             >
               {/* Animated Gradient Border on Hover */}
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent blur-xl" />

@@ -247,7 +247,9 @@ export default async function HomePage({
 
                   <div className="pt-4">
                     <Button asChild size="lg" variant="outline" className="w-full border-white/10 bg-white/5 hover:bg-white/10 rounded-2xl px-8 transition-all hover:scale-[1.02]">
-                      <Link href={contact.cv}>{labels.ctaCv}</Link>
+                      <Link href={contact.cv} target="_blank" rel="noopener noreferrer">
+                        {labels.ctaCv}
+                      </Link>
                     </Button>
                   </div>
                 </div>
