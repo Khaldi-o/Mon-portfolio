@@ -31,20 +31,28 @@ export const home = {
   ],
   impacts: [
     {
-      title: "Avant / Après",
-      description: "KPIs clarifiés, délais de décision réduits."
+      badge: "Dataiku",
+      title: "Core Designer Certificate",
+      description: "Maîtrise des fondamentaux de Dataiku DSS pour la préparation de données et le machine learning.",
+      image: "/images/technos/certificat1.png"
     },
     {
-      title: "Pipeline robuste",
-      description: "Contrôles qualité intégrés, fiabilité accrue."
+      badge: "Dataiku",
+      title: "Advanced Designer Certificate",
+      description: "Compétences avancées en conception de pipelines de données et d'analyses complexes.",
+      image: "/images/technos/certificat2.png"
     },
     {
-      title: "Pilotage opérationnel",
-      description: "Visibilité quotidienne pour les équipes terrain."
+      badge: "Harvard",
+      title: "CS50 Computer Science",
+      description: "Les bases de l'informatique : algorithmique, structures de données, C, Python et SQL.",
+      image: "/images/generic/Dashboard.png"
     },
     {
-      title: "Architecture évolutive",
-      description: "Systèmes conçus pour absorber la croissance des données."
+      badge: "Azure",
+      title: "DP-203 Data Engineering",
+      description: "Conception et implémentation de solutions d'ingénierie de données sur Microsoft Azure.",
+      image: "/images/generic/pipeline.png"
     }
   ],
   toolbox: [

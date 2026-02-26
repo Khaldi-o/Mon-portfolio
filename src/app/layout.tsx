@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description:
     "Portfolio data premium: pipeline, modèle, dashboard, décision. Double casquette Data Analyst/BI et Data Engineer junior.",
   metadataBase: new URL("https://example.com"),
+  icons: {
+    icon: "/images/generic/monlogo.png",
+  },
   openGraph: {
     title: "Omar Khaldi | Data Analyst & BI + Data Engineer",
     description:

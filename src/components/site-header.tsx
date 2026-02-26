@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -10,11 +11,10 @@ import LocaleSwitch from "@/components/locale-switch";
 
 const navItems = [
   { key: "home", href: "" },
-  { key: "projects", href: "/projects" },
   { key: "experience", href: "/experience" },
+  { key: "projects", href: "/projects" },
   { key: "skills", href: "/skills" },
   { key: "certifications", href: "/certifications" },
-  { key: "about", href: "/about" },
 ];
 
 export default function SiteHeader() {
@@ -29,9 +29,16 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4 sm:px-8 lg:px-16">
         <Link
           href={`${base}`}
-          className="text-sm font-semibold uppercase tracking-[0.3em] text-white"
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-white"
         >
-          Omar Khaldi
+          <Image
+            src="/images/generic/monlogo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="rounded-md shadow-glow-purple"
+          />
+          <span className="hidden sm:inline">Omar Khaldi</span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-medium text-foreground/80 lg:flex">
           {navItems.map((item) => {

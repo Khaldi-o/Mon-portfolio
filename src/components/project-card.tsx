@@ -39,7 +39,7 @@ export default function ProjectCard({
       >
         <span className="sr-only">{project.title}</span>
       </Link>
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <Image
           src={project.coverImage}
           alt={project.title}
@@ -52,19 +52,8 @@ export default function ProjectCard({
         {/* Hover Reveal Overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/20 backdrop-blur-[2px]">
           <div className="rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md flex items-center gap-2">
-            {isExternal ? (
-              <>
-                {project.externalUrl?.includes("github.com")
-                  ? (ctaLabel.includes("Voir") ? "Voir sur GitHub" : "View on GitHub")
-                  : (project.externalUrl?.includes("linkedin.com")
-                    ? (ctaLabel.includes("Voir") ? "Voir sur LinkedIn" : "View on LinkedIn")
-                    : "View Project")
-                }
-                <ExternalLink className="h-3 w-3" />
-              </>
-            ) : (
-              ctaLabel.includes("Voir") ? "Voir le Case Study" : "View Case Study"
-            )}
+            {ctaLabel}
+            {isExternal && <ExternalLink className="h-3 w-3" />}
           </div>
         </div>
       </div>
@@ -97,9 +86,6 @@ export default function ProjectCard({
             <Badge key={tag}>{tag}</Badge>
           ))}
         </div>
-        <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-          {isExternal ? "Voir sur LinkedIn ↗" : ctaLabel}
-        </p>
       </CardContent>
     </Card>
   );

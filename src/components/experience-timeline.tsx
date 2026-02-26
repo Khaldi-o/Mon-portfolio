@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TechBadge from "@/components/tech-badge";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 
 export default function ExperienceTimeline({
   items,
@@ -144,9 +145,10 @@ function ExperienceCard({
                 <Link
                   key={slug}
                   href={`${basePath}/${slug}`}
-                  className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs font-medium text-foreground/70 transition-all hover:border-cyan-500/30 hover:bg-cyan-500/10 hover:text-white"
+                  className="group flex flex-row items-center gap-2 rounded-xl bg-white text-black px-5 py-2.5 text-xs font-bold transition-all hover:bg-white/90 hover:scale-105 shadow-md"
                 >
                   {projectMap[slug] ?? slug}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               ))}
             </div>

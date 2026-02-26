@@ -31,20 +31,28 @@ export const home = {
   ],
   impacts: [
     {
-      title: "Before / After",
-      description: "Clear KPIs, faster decisions."
+      badge: "Dataiku",
+      title: "Core Designer Certificate",
+      description: "Mastery of Dataiku DSS fundamentals for data preparation and machine learning.",
+      image: "/images/technos/certificat1.png"
     },
     {
-      title: "Robust pipeline",
-      description: "Built-in quality checks, higher reliability."
+      badge: "Dataiku",
+      title: "Advanced Designer Certificate",
+      description: "Advanced skills in designing complex data pipelines and analytics solutions.",
+      image: "/images/technos/certificat2.png"
     },
     {
-      title: "Operational steering",
-      description: "Daily visibility for field teams."
+      badge: "Harvard",
+      title: "CS50 Computer Science",
+      description: "Fundamentals of Computer Science: algorithms, data structures, C, Python, and SQL.",
+      image: "/images/generic/Dashboard.png"
     },
     {
-      title: "Scalable Architecture",
-      description: "Systems designed to handle data growth."
+      badge: "Azure",
+      title: "DP-203 Data Engineering",
+      description: "Designing and implementing data engineering solutions on Microsoft Azure.",
+      image: "/images/generic/pipeline.png"
     }
   ],
   toolbox: [

@@ -2,21 +2,6 @@ import type { ProjectMeta } from "@/types/content";
 
 export const projects: ProjectMeta[] = [
   {
-    slug: "sig-app",
-    title: "App SIG (Système d'Information Géographique)",
-    summary:
-      "Application cartographique pour analyser des données territoriales et métiers.",
-    tags: ["Python", "VueJS", "GIS"],
-    featured: true,
-    date: "2023-04-15",
-    stack: ["Python", "VueJS", "Leaflet", "API"],
-    coverImage: "/images/projects/scapesig.png",
-    gallery: ["/images/projects/scapesig.png"],
-    links: {},
-    confidentiality: "public",
-    externalUrl: "https://github.com/Khaldi-o",
-  },
-  {
     slug: "lsf-ai",
     title: "App accessibilité IA LSF",
     summary:
@@ -30,6 +15,21 @@ export const projects: ProjectMeta[] = [
     links: {},
     confidentiality: "public",
     externalUrl: "https://www.linkedin.com/posts/activity-7201594993315041280-NTvc/",
+  },
+  {
+    slug: "sig-app",
+    title: "App SIG (Système d'Information Géographique)",
+    summary:
+      "Application cartographique pour analyser des données territoriales et métiers.",
+    tags: ["Python", "VueJS", "GIS"],
+    featured: true,
+    date: "2023-04-15",
+    stack: ["Python", "VueJS", "Leaflet", "API"],
+    coverImage: "/images/projects/scapesig.png",
+    gallery: ["/images/projects/scapesig.png"],
+    links: {},
+    confidentiality: "public",
+    externalUrl: "https://github.com/Khaldi-o",
   },
   {
     slug: "social-generator",

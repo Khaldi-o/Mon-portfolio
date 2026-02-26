@@ -48,8 +48,7 @@ export default async function HomePage({
         },
         toolboxEyebrow: "Compétences",
         toolboxTitle: "Stack & outils",
-        toolboxDescription:
-          "Des outils BI et data engineering choisis pour la fiabilité.",
+        toolboxDescription: "",
         ctaEyebrow: "Disponible pour échanger",
         ctaTitle: "Prêt à construire votre prochain produit data ?",
         ctaContact: "Contact",
@@ -74,8 +73,7 @@ export default async function HomePage({
         },
         toolboxEyebrow: "Toolbox",
         toolboxTitle: "Stack & tools",
-        toolboxDescription:
-          "BI and data engineering tools chosen for reliability.",
+        toolboxDescription: "",
         ctaEyebrow: "Available to chat",
         ctaTitle: "Ready to build your next data product?",
         ctaContact: "Contact",
@@ -104,7 +102,7 @@ export default async function HomePage({
 
         {/* 2. Experience */}
         <Reveal>
-          <section className="space-y-12">
+          <section id="experience" className="space-y-12 scroll-mt-24">
             <SectionHeading
               eyebrow={labels.experienceEyebrow}
               title={labels.experienceTitle}
@@ -121,7 +119,7 @@ export default async function HomePage({
 
         {/* 3. Data Journey */}
         <Reveal>
-          <section className="space-y-12">
+          <section id="journey" className="space-y-12 scroll-mt-24">
             <SectionHeading
               eyebrow={labels.journeyEyebrow}
               title="End-to-End Data Workflow"
@@ -133,7 +131,7 @@ export default async function HomePage({
 
         {/* 4. Featured Projects */}
         <Reveal>
-          <section className="space-y-6">
+          <section id="projects" className="space-y-6 scroll-mt-24">
             <SectionHeading
               eyebrow={labels.featuredEyebrow}
               title={labels.featuredTitle}
@@ -166,7 +164,7 @@ export default async function HomePage({
 
         {/* 5. Toolbox */}
         <Reveal>
-          <section className="space-y-6">
+          <section id="toolbox" className="space-y-6 scroll-mt-24">
             <SectionHeading
               eyebrow={labels.toolboxEyebrow}
               title={labels.toolboxTitle}
@@ -178,7 +176,7 @@ export default async function HomePage({
 
         {/* 6. Proof of Impact */}
         <Reveal>
-          <section className="space-y-6">
+          <section id="certifications" className="space-y-6 scroll-mt-24">
             <SectionHeading
               eyebrow={labels.impactEyebrow}
               title={labels.impactTitle}

@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Github } from "lucide-react";
 
 export default function SiteFooter() {
@@ -10,9 +11,18 @@ export default function SiteFooter() {
   return (
     <footer className="border-t border-white/5 bg-background/90 px-4 py-10 sm:px-8 lg:px-16">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 text-sm text-foreground/70 md:flex-row md:items-center">
-        <div>
-          <p className="font-display text-lg text-white font-bold">Omar Khaldi</p>
-          <p className="opacity-60">{t("tagline")}</p>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/images/generic/monlogo.png"
+            alt="Omar Khaldi Logo"
+            width={56}
+            height={56}
+            className="rounded-lg shadow-glow-purple"
+          />
+          <div>
+            <p className="font-display text-lg text-white font-bold">Omar Khaldi</p>
+            <p className="opacity-60 text-xs">{t("tagline")}</p>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">

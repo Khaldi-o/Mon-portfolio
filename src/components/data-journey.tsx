@@ -117,13 +117,14 @@ export default function DataJourney({ steps }: { steps: Step[] }) {
                   onClick={() => setActive(index)}
                   animate={!isActive ? {
                     scale: [1, 1.02, 1],
-                    borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.15)", "rgba(255,255,255,0.05)"]
+                    borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.15)", "rgba(255,255,255,0.05)"],
+                    backgroundColor: ["rgba(255,255,255,0)", "rgba(255,255,255,0.02)", "rgba(255,255,255,0)"]
                   } : { scale: 1 }}
                   transition={!isActive ? {
-                    duration: 3,
+                    duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.4
+                    delay: index * 0.5
                   } : {}}
                   className={cn(
                     "group relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 transition-all duration-300 md:h-20 md:w-20",
