@@ -3,7 +3,7 @@ import type { ProjectMeta } from "@/types/content";
 export const projects: ProjectMeta[] = [
   {
     slug: "sig-app",
-    title: "App SIG (Python + VueJS)",
+    title: "App SIG (Système d'Information Géographique)",
     summary:
       "Application cartographique pour analyser des données territoriales et métiers.",
     tags: ["Python", "VueJS", "GIS"],
@@ -14,6 +14,7 @@ export const projects: ProjectMeta[] = [
     gallery: ["/images/projects/scapesig.png"],
     links: {},
     confidentiality: "public",
+    externalUrl: "https://github.com/Khaldi-o",
   },
   {
     slug: "lsf-ai",
@@ -32,9 +33,9 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: "social-generator",
-    title: "Imaginify – Générateur de posts réseaux sociaux",
+    title: "Imaginify",
     summary:
-      "App full-stack React + FastAPI pour générer du contenu réseaux sociaux (texte + visuels) à partir d'un brief utilisateur.",
+      "App fullstack pour générer du contenu réseaux sociaux (texte + visuels) à partir d'un brief utilisateur.",
     tags: ["IA", "React", "FastAPI", "GenAI"],
     featured: true,
     date: "2023-06-15",
@@ -46,9 +47,9 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: "sqte-website",
-    title: "Site web Association SQTE",
+    title: "SQTE",
     summary:
-      "Site vitrine moderne pour l'association SQTE, développé avec un focus sur l'accessibilité et l'expérience utilisateur.",
+      "Site vitrine moderne développé pour l'association SQTE.",
     tags: ["Web", "React", "Next.js"],
     featured: true,
     date: "2024-06-10",
@@ -60,9 +61,9 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: "factai",
-    title: "FactAI – Vérificateur de fiabilité de contenu",
+    title: "FactAI",
     summary:
-      "Application d'analyse et de fact-checking automatique. Accepte des fichiers média, URLs YouTube et autres sources, extrait et transcrit le contenu, structure les informations, puis utilise des APIs LLM pour vérifier la fiabilité des affirmations.",
+      "Application de Fact-Checking, qui extrait et transcrit des contenus (PDF, audio, vidéo, YouTube), structure l’information et utilise des APIs LLM pour en vérifier la fiabilité.",
     tags: ["IA", "LLM", "NLP", "Fact-checking"],
     featured: true,
     date: "2024-11-15",
@@ -107,5 +108,6 @@ export const projects: ProjectMeta[] = [
     gallery: ["/images/projects/cover-analytics.svg"],
     links: {},
     confidentiality: "public",
+    externalUrl: "https://github.com/Khaldi-o",
   },
 ];

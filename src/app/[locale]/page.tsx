@@ -10,6 +10,9 @@ import ExperienceTimeline from "@/components/experience-timeline";
 import ToolboxStrip from "@/components/toolbox-strip";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/reveal";
+import { MoveRight, Mail, Linkedin, Github } from "lucide-react";
+import CopyEmailCard from "@/components/copy-email-card";
+
 
 export default async function HomePage({
   params
@@ -28,23 +31,22 @@ export default async function HomePage({
     locale === "fr"
       ? {
         journeyEyebrow: "Data Journey",
-        featuredEyebrow: "Featured",
+        featuredEyebrow: "Projets",
         featuredTitle: "Projets sélectionnés",
-        featuredDescription: "Des cas concrets BI, Dataiku, Azure et IA.",
-        impactEyebrow: "Proof of Impact",
-        impactTitle: "Problème → Action → Résultat",
-        impactDescription:
-          "Un format court pour capturer les gains métiers.",
-        experienceEyebrow: "Career Path",
+        featuredDescription: "",
+        impactEyebrow: "Certifications",
+        impactTitle: "Certifications",
+        impactDescription: "",
+        experienceEyebrow: "Carrière",
         experienceTitle: "Expériences professionnelles",
-        experienceDescription: "Un parcours axé sur la valeur data et l'excellence technique.",
+        experienceDescription: "",
         experienceLabels: {
           clientPrefix: "Client :",
           impact: "Impact & Missions",
           tech: "Stack Technique",
           highlights: "Projets liés"
         },
-        toolboxEyebrow: "Toolbox",
+        toolboxEyebrow: "Compétences",
         toolboxTitle: "Stack & outils",
         toolboxDescription:
           "Des outils BI et data engineering choisis pour la fiabilité.",
@@ -55,15 +57,15 @@ export default async function HomePage({
       }
       : {
         journeyEyebrow: "Data Journey",
-        featuredEyebrow: "Featured",
+        featuredEyebrow: "Projects",
         featuredTitle: "Selected projects",
-        featuredDescription: "BI, Dataiku, Azure and AI case studies.",
-        impactEyebrow: "Proof of Impact",
-        impactTitle: "Problem → Action → Result",
-        impactDescription: "A short format to capture business gains.",
+        featuredDescription: "",
+        impactEyebrow: "Certifications",
+        impactTitle: "Certifications",
+        impactDescription: "",
         experienceEyebrow: "Career Path",
         experienceTitle: "Work Experience",
-        experienceDescription: "A journey focused on data value and technical excellence.",
+        experienceDescription: "",
         experienceLabels: {
           clientPrefix: "Client:",
           impact: "Impact & Missions",
@@ -96,7 +98,7 @@ export default async function HomePage({
             ctaPrimary={home.hero.ctaPrimary}
             ctaSecondary={home.hero.ctaSecondary}
             primaryHref={`${base}/projects`}
-            secondaryHref={`${base}/contact`}
+            secondaryHref="#contact"
           />
         </Reveal>
 
@@ -122,7 +124,7 @@ export default async function HomePage({
           <section className="space-y-12">
             <SectionHeading
               eyebrow={labels.journeyEyebrow}
-              title=""
+              title="End-to-End Data Workflow"
               description=""
             />
             <DataJourney steps={home.dataJourney} />
@@ -145,10 +147,19 @@ export default async function HomePage({
                   href={`${base}/projects/${project.slug}`}
                   highlight
                   ctaLabel={
-                    locale === "fr" ? "Voir le case study" : "View case study"
+                    locale === "fr" ? "Voir le projet" : "View project"
                   }
                 />
               ))}
+            </div>
+
+            <div className="flex justify-center pt-8">
+              <Button asChild size="lg" variant="outline" className="group border-white/10 bg-white/5 hover:bg-white/10 hover:border-cyan-500/50 transition-all rounded-2xl px-8">
+                <Link href={`${base}/projects`} className="flex items-center gap-2">
+                  <span>{locale === "fr" ? "Voir plus de projets" : "View more projects"}</span>
+                  <MoveRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-cyan-400" />
+                </Link>
+              </Button>
             </div>
           </section>
         </Reveal>
@@ -177,24 +188,72 @@ export default async function HomePage({
           </section>
         </Reveal>
 
-        {/* 7. CTA */}
+        {/* 7. CTA / Professional Contact Zone */}
         <Reveal>
-          <section className="flex flex-col items-center justify-between gap-6 rounded-[32px] border border-white/10 bg-white/5 p-8 text-center md:flex-row md:items-center md:text-left">
-            <div className="flex flex-col items-center md:items-start">
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
-                {labels.ctaEyebrow}
-              </p>
-              <h3 className="mt-2 text-2xl font-semibold text-white">
-                {labels.ctaTitle}
-              </h3>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Button asChild size="lg" className="bg-cyan-500 text-black hover:bg-cyan-400">
-                <Link href={`mailto:${contact.email}`}>{labels.ctaContact}</Link>
-              </Button>
-              <Button asChild size="lg" variant="ghost" className="border border-white/10 hover:bg-white/5">
-                <Link href={contact.cv}>{labels.ctaCv}</Link>
-              </Button>
+          <section id="contact" className="space-y-12">
+            <SectionHeading
+              eyebrow="Contact"
+              title={locale === "fr" ? "Contact" : "Contact"}
+              description=""
+            />
+            <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-12 lg:p-16">
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 via-transparent to-purple-500/5" />
+
+              <div className="relative z-10 flex flex-col items-center justify-between gap-10 lg:flex-row">
+                <div className="space-y-4 text-center lg:text-left">
+                  <p className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400">
+                    {labels.ctaEyebrow}
+                  </p>
+                  <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+                    {locale === "fr" ? "Construisons ensemble" : "Let's build together"}
+                  </h3>
+                </div>
+
+                <div className="flex flex-col gap-6 w-full max-w-md">
+                  {/* Vertical Social Links */}
+                  <div className="flex flex-col gap-4">
+                    {/* Email */}
+                    <CopyEmailCard email={contact.email} label="Email" />
+
+                    {/* LinkedIn */}
+
+                    <Link
+                      href={contact.linkedin || "https://www.linkedin.com/in/omarkhaldi/"}
+                      target="_blank"
+                      className="group flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 p-4 transition-all hover:bg-white/10 hover:border-[#0077b5]/30"
+                    >
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0077b5]/10 text-[#0077b5] border border-[#0077b5]/20 transition-colors group-hover:bg-[#0077b5] group-hover:text-white">
+                        <Linkedin className="h-5 w-5" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">LinkedIn</span>
+                        <span className="font-bold text-white group-hover:text-[#0077b5] transition-colors">linkedin.com/in/omarkhaldi</span>
+                      </div>
+                    </Link>
+
+                    {/* GitHub */}
+                    <Link
+                      href={contact.github || "https://github.com/Khaldi-o"}
+                      target="_blank"
+                      className="group flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 p-4 transition-all hover:bg-white/10 hover:border-white/30"
+                    >
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white border border-white/20 transition-colors group-hover:bg-white group-hover:text-black">
+                        <Github className="h-5 w-5" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">GitHub</span>
+                        <span className="font-bold text-white group-hover:text-cyan-400 transition-colors">github.com/Khaldi-o</span>
+                      </div>
+                    </Link>
+                  </div>
+
+                  <div className="pt-4">
+                    <Button asChild size="lg" variant="outline" className="w-full border-white/10 bg-white/5 hover:bg-white/10 rounded-2xl px-8 transition-all hover:scale-[1.02]">
+                      <Link href={contact.cv}>{labels.ctaCv}</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </Reveal>

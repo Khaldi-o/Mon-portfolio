@@ -54,10 +54,16 @@ export default function ProjectCard({
           <div className="rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md flex items-center gap-2">
             {isExternal ? (
               <>
-                Voir sur LinkedIn <ExternalLink className="h-3 w-3" />
+                {project.externalUrl?.includes("github.com")
+                  ? (ctaLabel.includes("Voir") ? "Voir sur GitHub" : "View on GitHub")
+                  : (project.externalUrl?.includes("linkedin.com")
+                    ? (ctaLabel.includes("Voir") ? "Voir sur LinkedIn" : "View on LinkedIn")
+                    : "View Project")
+                }
+                <ExternalLink className="h-3 w-3" />
               </>
             ) : (
-              "View Case Study"
+              ctaLabel.includes("Voir") ? "Voir le Case Study" : "View Case Study"
             )}
           </div>
         </div>

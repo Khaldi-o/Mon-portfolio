@@ -8,14 +8,14 @@ export default function ProjectDetailSqte({ locale }: { locale: string }) {
     return (
         <div className="space-y-20">
             {/* About the Association */}
-            <section className="space-y-5">
+            <section className="space-y-6 flex flex-col items-center text-center">
                 <SectionTitle>{isFr ? "L'association" : "The Association"}</SectionTitle>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+                <p className="max-w-3xl text-base leading-relaxed text-foreground/80">
                     {isFr
                         ? "\"Sans Que Tu Erres\" (SQTE) est une association socio-culturelle fondée en 2018 à Mantes-La-Ville (78). Elle accompagne et forme un public divers dans la création et la production de contenus autour de trois pôles : Audiovisuel, Musique et Média. Sa mission : transmettre le savoir-faire artistique, développer la confiance en soi et accompagner ses membres dans leurs projets créatifs."
                         : "\"Sans Que Tu Erres\" (SQTE) is a socio-cultural association founded in 2018 in Mantes-La-Ville, France. It trains and supports diverse audiences in content creation and production across three pillars: Audiovisual, Music, and Media. Its mission: transmit artistic expertise, build self-confidence, and support members in their creative projects."}
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3">
                     {[
                         { fr: "🎬 Audiovisuel", en: "🎬 Audiovisual" },
                         { fr: "🎵 Musique", en: "🎵 Music" },
@@ -32,18 +32,19 @@ export default function ProjectDetailSqte({ locale }: { locale: string }) {
             </section>
 
             {/* Project Objective */}
-            <section className="space-y-5">
+            <section className="space-y-6 flex flex-col items-center text-center">
                 <SectionTitle>{isFr ? "Objectif du projet" : "Project Objective"}</SectionTitle>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+                <p className="max-w-3xl text-base leading-relaxed text-foreground/80">
                     {isFr
                         ? "Conception et développement d'un site internet vitrine pour centraliser la communication de l'association et renforcer sa visibilité en ligne."
                         : "Design and development of a showcase website to centralize the association's communication and strengthen its online presence."}
                 </p>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 w-full">
                     {(isFr
                         ? [
                             "Promouvoir les dernières actualités et projets",
                             "Attirer de nouveaux adhérents",
+                            "Partager leurs activités et événements",
                             "Développer les partenariats",
                             "Susciter des collaborations inter-associations",
                             "Faciliter les dons et le mécénat",
@@ -58,7 +59,7 @@ export default function ProjectDetailSqte({ locale }: { locale: string }) {
                     ).map((objective) => (
                         <div
                             key={objective}
-                            className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-foreground/80"
+                            className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-foreground/80 flex items-center justify-center lg:justify-start"
                         >
                             <span className="mr-2 text-cyan-400">→</span>
                             {objective}
@@ -68,9 +69,9 @@ export default function ProjectDetailSqte({ locale }: { locale: string }) {
             </section>
 
             {/* Screenshot */}
-            <section className="space-y-6">
+            <section className="space-y-6 flex flex-col items-center">
                 <SectionTitle>{isFr ? "Aperçu du site" : "Website Preview"}</SectionTitle>
-                <div className="mx-auto mt-4 max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl">
+                <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl">
                     <Image
                         src="/images/projects/sqte/Home.jpg"
                         alt="SQTE - Page d'accueil"
@@ -82,11 +83,11 @@ export default function ProjectDetailSqte({ locale }: { locale: string }) {
             </section>
 
             {/* Tech Stack */}
-            <section className="space-y-6">
+            <section className="space-y-6 flex flex-col items-center">
                 <SectionTitle>Stack technique</SectionTitle>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col items-center">
                     <TechStackGrid items={["React"]} />
-                    <div className="mt-6 flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap justify-center gap-3">
                         {["Next.js", "Tailwind CSS"].map((tech) => (
                             <div
                                 key={tech}

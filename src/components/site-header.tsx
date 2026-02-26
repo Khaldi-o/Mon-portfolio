@@ -15,7 +15,6 @@ const navItems = [
   { key: "skills", href: "/skills" },
   { key: "certifications", href: "/certifications" },
   { key: "about", href: "/about" },
-  { key: "contact", href: "/contact" },
 ];
 
 export default function SiteHeader() {

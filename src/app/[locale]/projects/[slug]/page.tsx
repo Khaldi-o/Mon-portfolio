@@ -9,11 +9,14 @@ import { Badge } from "@/components/ui/badge";
 import ProjectDetailFactai from "@/components/project-detail-factai";
 import ProjectDetailImaginify from "@/components/project-detail-imaginify";
 import ProjectDetailSqte from "@/components/project-detail-sqte";
+import ProjectDetailBiDashboards from "@/components/project-detail-bi-dashboards";
+
 
 const CUSTOM_SLUGS: Record<string, React.ComponentType<{ locale: string }>> = {
   factai: ProjectDetailFactai,
   "social-generator": ProjectDetailImaginify,
   "sqte-website": ProjectDetailSqte,
+  "bi-dashboards": ProjectDetailBiDashboards,
 };
 
 export async function generateStaticParams() {
@@ -72,31 +75,34 @@ export default async function ProjectDetailPage({
 
   return (
     <div className="space-y-10">
-      <header className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">
-          {project.confidentiality === "sanitized"
-            ? labels.sanitized
-            : labels.public}
-        </p>
-        <h1 className="font-display text-3xl text-white sm:text-4xl">
-          {project.title}
-        </h1>
-        <p className="max-w-3xl text-base text-foreground/70">
-          {project.summary}
-        </p>
-        {project.metrics && project.metrics.length > 0 ? (
-          <div className="flex flex-wrap gap-3 text-sm text-foreground/70">
-            {project.metrics.map((metric) => (
-              <span
-                key={metric}
-                className="rounded-full border border-white/10 px-3 py-1"
-              >
-                {metric}
-              </span>
-            ))}
+      {slug !== "bi-dashboards" && (
+        <header className="space-y-6 py-12 text-center border-b border-white/10">
+          <div className="mx-auto inline-block">
+            <p className="text-xs uppercase tracking-[0.4em] text-cyan-400 font-bold mb-4">
+              {project.title}
+            </p>
+            <h1 className="font-display text-4xl text-white sm:text-5xl lg:text-6xl mb-4 font-bold">
+              {project.title}
+            </h1>
+            <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
           </div>
-        ) : null}
-      </header>
+          <p className="mx-auto max-w-3xl text-lg text-foreground/70 leading-relaxed italic">
+            {project.summary}
+          </p>
+          {project.metrics && project.metrics.length > 0 ? (
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-foreground/70 pt-4">
+              {project.metrics.map((metric) => (
+                <span
+                  key={metric}
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 transition-colors hover:border-cyan-500/30"
+                >
+                  {metric}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </header>
+      )}
 
       {/* Custom component for specific projects */}
       {CustomComponent ? (

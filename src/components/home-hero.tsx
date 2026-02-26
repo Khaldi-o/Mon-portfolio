@@ -38,7 +38,7 @@ export default function HomeHero({
             {eyebrow}
           </div>
 
-          <h1 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl drop-shadow-2xl">
+          <h1 className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl drop-shadow-2xl">
             {title}
           </h1>
 
@@ -92,12 +92,12 @@ export default function HomeHero({
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase tracking-wider text-cyan-300 font-bold">Role</span>
-                    <span className="font-mono text-xs font-bold text-white tracking-tight">Data Engineer & BI</span>
+                    <span className="font-mono text-xs font-bold text-white tracking-tight">Data Analyst / Data Engineer</span>
                   </div>
                   <div className="h-8 w-px bg-white/20" />
                   <div className="flex flex-col text-right">
-                    <span className="text-[10px] uppercase tracking-wider text-purple-400 font-bold">Stack</span>
-                    <span className="font-mono text-xs font-bold text-white tracking-tight">Azure • Python • PowerBI</span>
+                    <span className="text-[10px] uppercase tracking-wider text-purple-400 font-bold">Expertise</span>
+                    <span className="font-mono text-xs font-bold text-white tracking-tight">Data · Analytics · BI</span>
                   </div>
                 </div>
               </div>

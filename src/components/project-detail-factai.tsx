@@ -45,14 +45,14 @@ export default function ProjectDetailFactai({ locale }: { locale: string }) {
     return (
         <div className="space-y-20">
             {/* Intro */}
-            <section className="space-y-5">
+            <section className="space-y-6 flex flex-col items-center text-center">
                 <SectionTitle>{isFr ? "Objectif du projet" : "Project Objective"}</SectionTitle>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+                <p className="max-w-3xl text-base leading-relaxed text-foreground/80">
                     {isFr
-                        ? "FactAI est une application de vérification de faits (Fact-checking) à partir d'un fichier média (audio/vidéo) ou d'une URL YouTube. L'utilisateur indique un lien YouTube ou uploade un fichier local, l'application transcrit le contenu, extrait les informations clés, puis affiche un tableau de vérification lisible avec un score de fiabilité."
+                        ? "FactAI est une application de Fact-checking à partir d'un fichier média (audio/vidéo) ou d'une URL YouTube. L'utilisateur indique un lien YouTube en inputs ou upload un fichier local, l'app transcrit le contenu, extrait les informations clés, puis affiche un tableau de vérification lisible avec un score de fiabilité."
                         : "FactAI is a fact-checking application that works from media files (audio/video) or YouTube URLs. The user provides a YouTube link or uploads a local file, the application transcribes the content, extracts key information, then displays a readable verification table with a reliability score."}
                 </p>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-foreground/60">
+                <div className="flex flex-wrap justify-center items-center gap-3 text-sm text-foreground/60">
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
                         {isFr ? "Audio/Vidéo → Informations vérifiables" : "Audio/Video → Verifiable information"}
                     </span>
@@ -63,18 +63,18 @@ export default function ProjectDetailFactai({ locale }: { locale: string }) {
             </section>
 
             {/* Methodology */}
-            <section className="space-y-8">
+            <section className="space-y-8 flex flex-col items-center">
                 <SectionTitle>{isFr ? "Méthodologie" : "Methodology"}</SectionTitle>
 
                 <div className="mt-4 space-y-16">
                     {steps.map((step) => (
                         <div key={step.number} className="space-y-6">
                             {/* Step Header */}
-                            <div className="flex items-start gap-4">
+                            <div className="flex flex-col items-center text-center gap-4">
                                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-cyan-500/20 to-blue-500/10 text-base font-bold text-cyan-400">
                                     {step.number}
                                 </div>
-                                <div className="space-y-2 pt-0.5">
+                                <div className="space-y-2">
                                     <h3 className="text-lg font-semibold text-white">
                                         {isFr ? step.title.fr : step.title.en}
                                     </h3>
@@ -100,12 +100,12 @@ export default function ProjectDetailFactai({ locale }: { locale: string }) {
             </section>
 
             {/* Tech Stack */}
-            <section className="space-y-6">
+            <section className="space-y-6 flex flex-col items-center">
                 <SectionTitle>Stack technique</SectionTitle>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col items-center">
                     <TechStackGrid items={["React", "Docker"]} />
                     {/* Additional items without logos */}
-                    <div className="mt-6 flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap justify-center gap-3">
                         {["Python", "Flask", "Azure OpenAI"].map((tech) => (
                             <div
                                 key={tech}

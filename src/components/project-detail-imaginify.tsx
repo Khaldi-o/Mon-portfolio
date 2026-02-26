@@ -42,28 +42,28 @@ export default function ProjectDetailImaginify({ locale }: { locale: string }) {
     return (
         <div className="space-y-20">
             {/* Intro */}
-            <section className="space-y-5">
+            <section className="space-y-6 flex flex-col items-center text-center">
                 <SectionTitle>{isFr ? "Objectif du projet" : "Project Objective"}</SectionTitle>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+                <p className="max-w-3xl text-base leading-relaxed text-foreground/80">
                     {isFr
-                        ? "Imaginify est une application full-stack (React + FastAPI) qui permet de générer rapidement du contenu réseaux sociaux — texte et visuels — à partir d'un besoin utilisateur. L'objectif est de simplifier la création de posts professionnels et engageants en quelques clics."
+                        ? "Imaginify est une application fullStack (React + FastAPI) qui permet de générer rapidement du contenu réseaux sociaux à partir d'un besoin utilisateur. L'objectif est de simplifier la création de posts professionnels et engageants en quelques clics."
                         : "Imaginify is a full-stack application (React + FastAPI) that enables rapid generation of social media content — text and visuals — from a user brief. The goal is to simplify the creation of professional, engaging posts in just a few clicks."}
                 </p>
             </section>
 
             {/* Methodology */}
-            <section className="space-y-8">
+            <section className="space-y-8 flex flex-col items-center">
                 <SectionTitle>{isFr ? "Méthodologie" : "Methodology"}</SectionTitle>
 
                 <div className="mt-4 space-y-16">
                     {steps.map((step) => (
                         <div key={step.number} className="space-y-6">
                             {/* Step Header */}
-                            <div className="flex items-start gap-4">
+                            <div className="flex flex-col items-center text-center gap-4">
                                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-cyan-500/20 to-blue-500/10 text-base font-bold text-cyan-400">
                                     {step.number}
                                 </div>
-                                <div className="space-y-2 pt-0.5">
+                                <div className="space-y-2">
                                     <h3 className="text-lg font-semibold text-white">
                                         {isFr ? step.title.fr : step.title.en}
                                     </h3>
@@ -89,12 +89,12 @@ export default function ProjectDetailImaginify({ locale }: { locale: string }) {
             </section>
 
             {/* Tech Stack */}
-            <section className="space-y-6">
+            <section className="space-y-6 flex flex-col items-center">
                 <SectionTitle>Stack technique</SectionTitle>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col items-center">
                     <TechStackGrid items={["React", "Docker"]} />
                     {/* Additional items without logos */}
-                    <div className="mt-6 flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap justify-center gap-3">
                         {["Python", "FastAPI", "GenAI"].map((tech) => (
                             <div
                                 key={tech}

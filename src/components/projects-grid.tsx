@@ -77,37 +77,18 @@ export default function ProjectsGrid({
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
-        <div>
-          <label className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-            {searchLabel}
-          </label>
-          <div className="relative mt-2">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/50" />
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="SQL, Power BI, Dataiku..."
-              className="w-full rounded-2xl border border-white/10 bg-white/5 py-3 pl-10 pr-4 text-sm text-white placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
-            />
-          </div>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-            {sortTitle}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {(["featured", "recent", "complexity"] as SortKey[]).map((key) => (
-              <Button
-                key={key}
-                variant={sortKey === key ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setSortKey(key)}
-              >
-                {sortLabels[key]}
-              </Button>
-            ))}
-          </div>
+      <div className="w-full">
+        <label className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+          {searchLabel}
+        </label>
+        <div className="relative mt-2">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/50" />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="SQL, Power BI, Dataiku..."
+            className="w-full rounded-2xl border border-white/10 bg-white/5 py-3 pl-10 pr-4 text-sm text-white placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
+          />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 export const contact = {
-  email: "hello@omar-khaldi.dev",
-  linkedin: "https://linkedin.com/in/omar-khaldi",
-  github: "https://github.com/omar-khaldi",
+  email: "omar_khaldi@hotmail.fr",
+  linkedin: "https://linkedin.com/in/omarkhaldi",
+  github: "https://github.com/Khaldi-o",
   cv: "/files/CV_Omar_Khaldi.pdf"
 };

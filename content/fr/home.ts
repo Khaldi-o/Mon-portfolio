@@ -1,7 +1,7 @@
 export const home = {
   hero: {
     eyebrow: "Data Analyst / BI + Data Engineer junior",
-    title: "Transformer la donnée brute en décisions utiles.",
+    title: "Data Analysis, Analytics Engineering, BI & GenAI",
     punchline:
       "De l’ingestion au dashboard, je conçois des produits data clairs, performants et orientés impact.",
     ctaPrimary: "Voir les projets",
@@ -41,6 +41,10 @@ export const home = {
     {
       title: "Pilotage opérationnel",
       description: "Visibilité quotidienne pour les équipes terrain."
+    },
+    {
+      title: "Architecture évolutive",
+      description: "Systèmes conçus pour absorber la croissance des données."
     }
   ],
   toolbox: [

@@ -14,6 +14,7 @@ export const projects: ProjectMeta[] = [
     gallery: ["/images/projects/scapesig.png"],
     links: {},
     confidentiality: "public",
+    externalUrl: "https://github.com/Khaldi-o",
   },
   {
     slug: "lsf-ai",
@@ -107,5 +108,6 @@ export const projects: ProjectMeta[] = [
     gallery: ["/images/projects/cover-analytics.svg"],
     links: {},
     confidentiality: "public",
+    externalUrl: "https://github.com/Khaldi-o",
   },
 ];

@@ -56,8 +56,8 @@ const stepBgColors: Record<string, string> = {
 
 const techDetails: Record<string, any> = {
   Raw: {
-    stack: ["Python", "SQL", "Apache Spark (Streaming)", "Azure Blob Storage", "Azure Data Factory", "SSIS"],
-    scope: ["Ingestion", "Batch & Streaming", "Data profiling", "Schema validation", "Raw zone"],
+    stack: ["Python", "SQL", "Apache Spark (Streaming)", "Azure Blob Storage", "Azure Data Factory", "SSIS", "APIs"],
+    scope: ["Ingestion", "Batch & Streaming", "Data profiling", "Schema validation"],
     icon: Database
   },
   Pipeline: {
@@ -66,17 +66,17 @@ const techDetails: Record<string, any> = {
     icon: Workflow
   },
   Model: {
-    stack: ["Python", "SQL", "DAX", "MLflow", "FastAPI"],
+    stack: ["Python", "OpenCV", "FastAPI"],
     scope: ["Feature engineering", "KPIs", "Scoring", "Aggregations", "Training / Inference"],
     icon: BrainCircuit
   },
   Dashboard: {
-    stack: ["Power BI", "Qlik Sense", "DAX", "SQL"],
+    stack: ["Power BI", "Qlik Sense", "DAX"],
     scope: ["Data visualization", "KPIs", "Exploration", "Monitoring", "Decision support"],
     icon: LayoutDashboard
   },
   Decision: {
-    stack: ["Power BI", "FastAPI", "React", "Azure SQL"],
+    stack: ["Data-Driven", "compétences métiers", "Force de proposition"],
     scope: ["Insights", "Business actions", "Monitoring", "Optimization", "Impact"],
     icon: Lightbulb
   }
@@ -113,8 +113,18 @@ export default function DataJourney({ steps }: { steps: Step[] }) {
 
             return (
               <div key={step.title} className="relative z-10 flex flex-col items-center gap-3">
-                <button
+                <motion.button
                   onClick={() => setActive(index)}
+                  animate={!isActive ? {
+                    scale: [1, 1.02, 1],
+                    borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.15)", "rgba(255,255,255,0.05)"]
+                  } : { scale: 1 }}
+                  transition={!isActive ? {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.4
+                  } : {}}
                   className={cn(
                     "group relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 transition-all duration-300 md:h-20 md:w-20",
                     isActive
@@ -125,7 +135,7 @@ export default function DataJourney({ steps }: { steps: Step[] }) {
                   )}
                 >
                   <Icon className={cn("h-6 w-6 md:h-8 md:w-8", isActive && "scale-110 transition-transform")} />
-                </button>
+                </motion.button>
 
                 <span className={cn(
                   "text-[10px] font-bold uppercase tracking-widest transition-colors md:text-xs",
