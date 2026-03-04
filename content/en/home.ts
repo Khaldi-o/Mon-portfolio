@@ -67,6 +67,9 @@ export const home = {
     "SQL",
     "Python",
     "Docker",
-    "Git"
+    "Git",
+    "Spark",
+    "React",
+    "GenAI"
   ]
 };
