@@ -11,10 +11,10 @@ import LocaleSwitch from "@/components/locale-switch";
 
 const navItems = [
   { key: "home", href: "" },
-  { key: "experience", href: "/experience" },
+  { key: "experience", href: "#experience" },
   { key: "projects", href: "/projects" },
-  { key: "skills", href: "/skills" },
-  { key: "certifications", href: "/certifications" },
+  { key: "skills", href: "#toolbox" },
+  { key: "certifications", href: "#certifications" },
 ];
 
 export default function SiteHeader() {

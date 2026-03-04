@@ -32,26 +32,26 @@ const iconMap: Record<string, any> = {
 
 const stepColors: Record<string, string> = {
   Raw: "from-purple-500 to-purple-700",
-  Pipeline: "from-blue-500 to-blue-700",
+  Pipeline: "from-cyan-400 to-cyan-600",
   Model: "from-green-500 to-green-700",
   Dashboard: "from-yellow-400 to-yellow-600",
-  Decision: "from-red-500 to-red-700",
+  Decision: "from-orange-500 to-amber-700",
 };
 
 const stepTextColors: Record<string, string> = {
   Raw: "text-purple-400",
-  Pipeline: "text-blue-400",
+  Pipeline: "text-cyan-400",
   Model: "text-green-400",
   Dashboard: "text-yellow-400",
-  Decision: "text-red-400",
+  Decision: "text-orange-400",
 };
 
 const stepBgColors: Record<string, string> = {
   Raw: "bg-purple-500/10 border-purple-500/20",
-  Pipeline: "bg-blue-500/10 border-blue-500/20",
+  Pipeline: "bg-cyan-500/10 border-cyan-500/20",
   Model: "bg-green-500/10 border-green-500/20",
   Dashboard: "bg-yellow-500/10 border-yellow-500/20",
-  Decision: "bg-red-500/10 border-red-500/20",
+  Decision: "bg-orange-500/10 border-orange-500/20",
 };
 
 const techDetails: Record<string, any> = {
@@ -116,15 +116,14 @@ export default function DataJourney({ steps }: { steps: Step[] }) {
                 <motion.button
                   onClick={() => setActive(index)}
                   animate={!isActive ? {
-                    scale: [1, 1.02, 1],
-                    borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.15)", "rgba(255,255,255,0.05)"],
-                    backgroundColor: ["rgba(255,255,255,0)", "rgba(255,255,255,0.02)", "rgba(255,255,255,0)"]
+                    scale: [1, 1.06, 1],
+                    borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.35)", "rgba(255,255,255,0.05)"],
+                    backgroundColor: ["rgba(255,255,255,0)", "rgba(255,255,255,0.06)", "rgba(255,255,255,0)"]
                   } : { scale: 1 }}
                   transition={!isActive ? {
-                    duration: 4,
+                    duration: 2.5,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.5
                   } : {}}
                   className={cn(
                     "group relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 transition-all duration-300 md:h-20 md:w-20",

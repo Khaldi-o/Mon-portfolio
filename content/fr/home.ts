@@ -53,7 +53,7 @@ export const home = {
     },
     {
       badge: "Azure",
-      title: "DP-203 Data Engineering",
+      title: "DP-203 Data Engineering (en cours)",
       description: "Conception et implémentation de solutions d'ingénierie de données sur Microsoft Azure.",
       image: "/images/technos/certificat4.jpg",
       hasModal: false
